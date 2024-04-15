@@ -16,9 +16,11 @@ The purpose of this repo is nothing but to improve my Langchain skills with the 
 2. **Specify Person**: In the `ice_breaker.py` file, replace `"Ozer Ozdal"` with the name of the person you would like to search for on LinkedIn, and
 provide a short description of that person to facilitate the search and summary generation process.
 
-3. **Set Mock Flag**: Change the `mock` flag to `True` in the `ice_breaker.py` file. This will send a GET request using the PROXYCURL API.
+3. **Set Mock Flag**: Change the `mock` flag to `False` in the `ice_breaker.py` file. This will send a GET request to the PROXYCURL API.
+    Extra Info: I enable the mock flag and set it to True to send a GET request to GitHub Gist, fetching a saved JSON version of my LinkedIn page, as a cost-conscious measure.
+    This approach helps me minimize the number of API requests sent to the PROXYCURL API during the development phase.
 
-4. **View Results**: After running `ice_breaker.py`, you can find the results in the `results/summary.json` file. The output will resemble the following:
+5. **View Results**: After running `ice_breaker.py`, you can find the results in the `results/summary.json` file. The output will resemble the following:
 
 ```console
 Hello LangChain!
