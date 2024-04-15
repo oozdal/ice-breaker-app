@@ -28,7 +28,8 @@ streamlit run ice_breaker.py
 ## A Cost-Conscious Approach
 
 **Set Mock Flag**: To search for someone other than Ozer Ozdal, simply update the `mock` flag to False in the `ice_breaker.py` file. This action will trigger a GET request to the PROXYCURL API. 
-- Extra Info: I enable the `mock` flag and set it to `True` to send a GET request to GitHub Gist, fetching a saved JSON version of my LinkedIn page, as a cost-conscious measure.
+- Extra Info: I enable the `mock` flag and set it to `True` to send a GET request to ![GitHub Gist](https://gist.githubusercontent.com/oozdal/15a23c0428f361beff94f02775492592/raw/7f880c0a51feb4c32ed1057d557e7bb1ba8382f3/ozer-ozdal.json), 
+fetching a saved JSON version of my LinkedIn page, as a cost-conscious measure.
 - This approach helps me minimize the number of API requests sent to the PROXYCURL API during the development phase and save money.
 
 ## Some Screenshots From the Development Phase
