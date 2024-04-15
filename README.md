@@ -1,9 +1,9 @@
-## Icebreaker
+## Icebreaker Streamlit Application
 
 Icebreaker app finds the person on LinkedIn and provides a short and fun summary about that person. 
 The purpose of this repo is nothing but to improve my Langchain skills with the help of an online course on Udemy taught by Eden Marco.
 
-## Usage
+## Usage & Streamlit User Interface
 
 1. **Provide API Keys**: Create a `.env` file in the root directory of the project and include the following API keys:
 
@@ -13,14 +13,25 @@ The purpose of this repo is nothing but to improve my Langchain skills with the 
     SERPAPI_API_KEY="PUT_YOUR_SERPAPI_API_KEY"
     ```
 
-2. **Specify Person**: In the `ice_breaker.py` file, replace `"Ozer Ozdal"` with the name of the person you would like to search for on LinkedIn, and
-provide a short description of that person to facilitate the search and summary generation process.
+2. **Run the App and Specify Person**:
 
-3. **Set Mock Flag**: Change the `mock` flag to `False` in the `ice_breaker.py` file. This will send a GET request to the PROXYCURL API.
-    Extra Info: I enable the mock flag and set it to True to send a GET request to GitHub Gist, fetching a saved JSON version of my LinkedIn page, as a cost-conscious measure.
-    This approach helps me minimize the number of API requests sent to the PROXYCURL API during the development phase.
+```python
+streamlit run ice_breaker.py
+```
 
-5. **View Results**: After running `ice_breaker.py`, you can find the results in the `results/summary.json` file. The output will resemble the following:
+- Replace `"Ozer Ozdal"` with the name of the person you would like to search for on LinkedIn.
+- Additionally, please provide a brief description of the person to help the search and summary creation process. 
+- Once done, click the submit button as shown in the example below. Enjoy!
+
+![Screenshot 2024-04-15 at 2 56 22 PM](https://github.com/oozdal/ice-breaker-app/assets/34719109/261f74b5-b9be-424e-986e-7997debe4829)
+
+## A Cost-Conscious Approach
+
+**Set Mock Flag**: To search for someone other than Ozer Ozdal, simply update the `mock` flag to False in the `ice_breaker.py` file. This action will trigger a GET request to the PROXYCURL API. 
+- Extra Info: I enable the `mock` flag and set it to `True` to send a GET request to GitHub Gist, fetching a saved JSON version of my LinkedIn page, as a cost-conscious measure.
+- This approach helps me minimize the number of API requests sent to the PROXYCURL API during the development phase and save money.
+
+## Some Screenshots From the Development Phase
 
 ```console
 Hello LangChain!
@@ -55,6 +66,7 @@ Final Answer: https://ca.linkedin.com/in/ozerozdal
 - **ProxyCurl API**: Used for making requests to LinkedIn.
 - **SerpAPI**: Employed for scraping search engine results.
 
+## Deployment
 
-
+- Icebreaker is an ongoing project. I will deploy the app on Render soon. Stay tuned!
 
