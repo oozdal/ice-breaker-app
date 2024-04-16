@@ -13,7 +13,13 @@ if __name__ == "__main__":
 
     # Streamlit app
     st.subheader("Get a summary of the person you'd to break the ice with")
-                
+
+    # Get OpenAI API key, PROXYCURL API key and SERPAPI KEY, and source document input
+    with st.sidebar:
+        openai_api_key = st.text_input("OpenAI API key", type="password")
+        proxy_curl_api_key = st.text_input("Proxy Curl API key", type="password")
+        serpapi_api_key = st.text_input("Serp API key", type="password")
+            
     print("Hello LangChain!")
 
     default_name = "Ozer Ozdal"  # Default value for the Name input
@@ -36,8 +42,9 @@ if __name__ == "__main__":
                     summary = json.load(f)
                     st.success(summary['text'])
 
-            else:
-                linkedin_profile_url = linkedin_lookup_agent(name=name)
+            elif name != default_name and openai_api_key and proxy_curl_api_key and serpapi_api_key:
+
+                linkedin_profile_url = linkedin_lookup_agent(name=name, openai_api_key=openai_api_key)
 
                 summary_template = """
                 given the information {information} about a person I want you to create:
@@ -51,18 +58,26 @@ if __name__ == "__main__":
 
                 # temperature will decide how creative the language model will be.
                 # 0 means it won't be creative
-                llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
+                llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo", openai_api_key=openai_api_key)
 
                 chain = LLMChain(llm=llm, prompt=summary_prompt_template)
 
                 linkedin_data = scrape_linkedin_profile(
                     linkedin_profile_url=linkedin_profile_url, 
-                    mock=True)
+                    mock=True,
+                    proxy_curl_api_key=proxy_curl_api_key)
 
                 summary = chain.invoke(input={"information": linkedin_data})
 
                 # Return the short summary and two interesting facts about the person
                 st.success(summary['text'])
+
+            else:
+                st.error(f"""
+                        Sorry we cannot provide a summary for {name}. \n
+                        Please provide your OpenAl API, ProxyCurl API and SerpAPI API keys. \n
+                        You can only search for the name Ozer Ozdal for free :)
+                        """)
 
         except Exception as e:
             st.error(f"An error occurred: {e}")

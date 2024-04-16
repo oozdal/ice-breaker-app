@@ -13,8 +13,8 @@ from langchain_core.prompts import PromptTemplate
 from tools.tools import get_profile_url
 
 
-def lookup(name: str) -> str:
-    llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
+def lookup(name: str, openai_api_key: str) -> str:
+    llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo", openai_api_key=openai_api_key)
     template = """given the full name {name_of_person} I want you to get it me a link to their Linkedin profile page.
                           Your answer should contain only a URL"""
 
