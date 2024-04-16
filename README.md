@@ -1,29 +1,27 @@
 ## Icebreaker Streamlit Application
 
-Icebreaker app finds the person on LinkedIn and provides a short and fun summary about that person. 
+Icebreaker app finds the person on LinkedIn, scraps the person's LinkedIn page and then provides a short summary and two interesting facts about that person. 
 The purpose of this repo is nothing but to improve my Langchain skills with the help of an online course on Udemy taught by Eden Marco.
 
 ## Usage & Streamlit User Interface
 
-1. **Provide API Keys**: Create a `.env` file in the root directory of the project and include the following API keys:
-
-    ```python
-    OPENAI_API_KEY="PUT_YOUR_OPENAI_API_KEY"
-    PROXYCURL_API_KEY="PUT_YOUR_PROXYCURL_API_KEY"
-    SERPAPI_API_KEY="PUT_YOUR_SERPAPI_API_KEY"
-    ```
-
-2. **Run the App and Specify Person**:
+**Run the App, Provide the following API Keys and Specify Person**:
 
 ```python
 streamlit run ice_breaker.py
 ```
 
+- Provide your API Keys on the left side of the Streamlit UI.
 - Replace `"Ozer Ozdal"` with the name of the person you would like to search for on LinkedIn.
 - Additionally, please provide a brief description of the person to help the search and summary creation process. 
 - Once done, click the submit button as shown in the example below. Enjoy!
 
 ![Screenshot 2024-04-15 at 2 56 22 PM](https://github.com/oozdal/ice-breaker-app/assets/34719109/261f74b5-b9be-424e-986e-7997debe4829)
+
+- If you try to search someone without providing your API Keys, you will receive an error similar to the following.
+
+![Screenshot 2024-04-16 at 12 27 49 AM](https://github.com/oozdal/ice-breaker-app/assets/34719109/1c1ae22a-7ffe-4722-8895-8f427905e31b)
+
 
 ## A Cost-Conscious Approach
 
