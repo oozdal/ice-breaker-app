@@ -3,15 +3,17 @@
 Icebreaker app finds the person on LinkedIn, scraps the person's LinkedIn page and then provides a short summary and two interesting facts about that person. 
 The purpose of this repo is nothing but to improve my Langchain skills with the help of an online course on Udemy taught by Eden Marco.
 
-## Usage & Streamlit User Interface
+## Usage, Deployment & Streamlit User Interface
 
-**Run the App, Provide the following API Keys and Specify Person**:
+The application is deployed and accessible at: [Ice Breaker App](https://ice-breaker-app.onrender.com/)
 
-```python
-streamlit run ice_breaker.py
-```
+Warning: Free Instance Spin-Down Delay
 
-- Provide your API Keys on the left side of the Streamlit UI.
+Please note that the free instance provided by Render may experience spin-down due to inactivity. This could result in delays of 50 seconds or more when processing requests. Please be patient while your web browser tries to load the page.
+
+**Provide the following API Keys and Specify Person**:
+
+- Provide your API Keys on the left side of the User Interface.
 - Replace `"Ozer Ozdal"` with the name of the person you would like to search for on LinkedIn.
 - Additionally, please provide a brief description of the person to help the search and summary creation process. 
 - Once done, click the submit button as shown in the example below. Enjoy!
