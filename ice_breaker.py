@@ -5,7 +5,7 @@ from langchain_core.prompts import PromptTemplate
 from agents.linkedin_lookup_agent import lookup as linkedin_lookup_agent
 from third_parties.linkedin import scrape_linkedin_profile
 import streamlit as st
-import json
+import json, os
 
 
 if __name__ == "__main__":
@@ -19,6 +19,10 @@ if __name__ == "__main__":
         openai_api_key = st.text_input("OpenAI API key", type="password")
         proxy_curl_api_key = st.text_input("Proxy Curl API key", type="password")
         serpapi_api_key = st.text_input("Serp API key", type="password")
+
+    os.environ["OPENAI_API_KEY"] = openai_api_key
+    os.environ["PROXYCURL_API_KEY"] = proxy_curl_api_key
+    os.environ["SERPAPI_API_KEY"] = serpapi_api_key
             
     print("Hello LangChain!")
 
@@ -64,7 +68,7 @@ if __name__ == "__main__":
 
                 linkedin_data = scrape_linkedin_profile(
                     linkedin_profile_url=linkedin_profile_url, 
-                    mock=True,
+                    mock=False,
                     proxy_curl_api_key=proxy_curl_api_key)
 
                 summary = chain.invoke(input={"information": linkedin_data})
@@ -81,4 +85,13 @@ if __name__ == "__main__":
 
         except Exception as e:
             st.error(f"An error occurred: {e}")
+
+    # Unset environment variables
+    if 'OPENAI_API_KEY' in os.environ:
+        del os.environ['OPENAI_API_KEY']
             
+    if 'PROXYCURL_API_KEY' in os.environ:
+        del os.environ['PROXYCURL_API_KEY']
+
+    if 'SERPAPI_API_KEY' in os.environ:
+        del os.environ['SERPAPI_API_KEY']
