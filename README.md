@@ -67,7 +67,3 @@ Final Answer: https://ca.linkedin.com/in/ozerozdal
 - **ProxyCurl API**: Used for making requests to LinkedIn.
 - **SerpAPI**: Employed for scraping search engine results.
 
-## Deployment
-
-- Icebreaker is an ongoing project. I will deploy the app on Render soon. Stay tuned!
-
